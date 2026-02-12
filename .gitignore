@@ -1,0 +1,9 @@
+# Ignore the Videos folder inside Other
+Other/Videos/
+
+# Optional: ignore video files anywhere in the repo
+*.mp4
+*.mov
+*.webm
+*.mkv
+*.avi

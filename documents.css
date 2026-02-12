@@ -1,0 +1,42 @@
+html, body {
+  margin: 0;
+  padding: 0;
+  font-family: "Poppins", "Inter", Arial, sans-serif;
+  background-color: white;
+  color: #111;
+}
+
+.topbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 90px;
+  display: flex;
+  align-items: center;
+  box-sizing: border-box;
+  background: hsla(0, 0%, 0%, 0.798);
+  backdrop-filter: blur(10px);
+  z-index: 99999999;
+}
+
+.bing {
+  height: 70px;
+  margin-right: auto;
+  margin-left: 35px;
+}
+
+.navlink {
+  color: rgba(255, 255, 255, 0.85);
+  text-decoration: none;
+  font-family: "Poppins", "Inter", Arial, sans-serif;
+  font-weight: 600;
+  padding: 10px 12px;
+  border-radius: 10px;
+  margin: 30px;
+  transition: background-color 0.2s ease;
+}
+
+.navlink:hover {
+  background: rgba(255, 255, 255, 0.12);
+}

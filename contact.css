@@ -1,0 +1,192 @@
+﻿html, body {
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+  font-family: "Poppins", "Inter", Arial, sans-serif;
+  background-color: black;
+  background-image: linear-gradient(180deg, #000000 45%, #1b08c9b7 70%);
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  text-decoration: none;
+  height: 100%;
+}
+
+.topbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 90px;
+  display: flex;
+  align-items: center;
+  box-sizing: border-box;
+  background: rgba(0, 0, 0, 0.796);
+  backdrop-filter: blur(10px);
+  z-index: 99999999;
+}
+
+.bing {
+  height: 70px;
+  margin-right: auto;
+  margin-left: 35px;
+}
+
+.navlink {
+  color: rgba(255, 255, 255, 0.85);
+  text-decoration: none;
+  font-family: "Poppins", "Inter", Arial, sans-serif;
+  font-weight: 600;
+  padding: 10px 12px;
+  border-radius: 10px;
+  margin: 30px;
+  transition: background-color 0.2s ease;
+}
+
+.navlink:hover {
+  background: rgba(255, 255, 255, 0.12);
+}
+
+.Top {
+  position: relative;
+  width: 100%;
+  height: 400px;
+  overflow: hidden;
+  background-color: black;
+}
+
+.Titlecontact {
+  position: absolute;
+  inset: 0;
+  margin-left: 80px;
+  color: white;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  margin-top: 50px;
+  font-size: 50px;
+  letter-spacing: -0.02em;
+  z-index: 1111;
+  text-shadow: 0 4.5px 100px rgb(255, 255, 255);
+}
+
+.wrap::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 1; /* ABOVE the video */
+
+  background: linear-gradient(
+    to bottom,
+    rgba(0, 0, 0, 0.329) 50%,
+    rgba(0, 0, 0, 0.77) 70%,
+    rgb(0, 0, 0) 84%
+  );
+}
+
+.vidback {
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: cover;
+  position: relative;
+  z-index: 0;
+}
+
+.contactMain {
+  color: black;
+}
+
+.icon {
+  width: 200px;
+  height: 200px;
+  object-fit: contain;
+  z-index: 10000;
+}
+
+.card{
+  position: relative;
+  max-width: 1669px;
+  display: flex;
+  gap: 30px;
+  padding: 34px 64px;
+  margin: 60px;
+  font-family:system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  background: linear-gradient(
+    to left,
+    rgba(255, 255, 255, 0),
+    rgba(255, 255, 255, 1)
+  );
+  border-radius: 20px;
+  
+  /* CHAT ANIMATION */
+  opacity: 0;
+  filter: blur(1px);
+  transition:
+    opacity 1s ease,
+    transform 2s ease,
+    filter 1s ease;
+  will-change: transform, opacity, filter;
+}
+
+.card:nth-child(even) {
+  flex-direction: row-reverse;
+  margin-left: auto;
+  margin-right: auto;
+  background: linear-gradient(
+    to right,
+    rgba(255, 255, 255, 0),
+    rgba(255, 255, 255, 1)
+  );
+  transform: translateX(-150px);
+  box-shadow: 10px 5px 15px rgba(34, 34, 34, 0.486);;
+}
+
+.card:nth-child(odd) {
+  transform: translateX(150px);
+  box-shadow: -10px 5px 15px rgba(34, 34, 34, 0.486);;
+}
+
+/* Visible state */
+.card.show {
+  opacity: 1;
+  transform: translateX(0);
+  filter: blur(0);
+}
+
+.card h {
+  font-size: 30px;
+  font-style: italic;
+  font-weight: 600;
+}
+
+.content{
+  position: relative;
+  font-size: 25px;
+  margin-left: 50px;
+  align-content: center;
+  max-width: 600px;
+}
+
+.click {
+  align-content: center;
+  margin: auto;
+}
+
+.button{
+  display: inline-block;
+  border-radius: 110px;
+  text-align: center;
+  background-color: rgba(255, 255, 255, 0.849);
+  text-decoration: none;
+  padding: 40px 40px;
+  transition: transform 0.2s ease;
+  color: black;
+  width: 200px;
+  font-size: 18px;
+}
+
+.button:hover {
+  transform:scale(1.1);
+  color: white;
+  background-color: black;
+
+}
