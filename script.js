@@ -1,4 +1,3 @@
-// List the rotating sentences
 const sentences = [
   "Aspiring software engineer",
   "Developed by myself",
@@ -8,18 +7,26 @@ const sentences = [
 let i = 0;
 const el = document.getElementById("rotateText");
 
+const START_DELAY = 2000;     // 👈 delay before anything appears (ms)
+const ROTATE_INTERVAL = 4000;
+const FADE_DURATION = 1000;
+
 function rotate() {
-  // fade out
   el.classList.add("fade-out");
 
-  // after fade out finishes, change text and fade in
   setTimeout(() => {
-    i = (i + 1) % sentences.length;
     el.textContent = sentences[i];
     el.classList.remove("fade-out");
-  }, 1000); // must match CSS transition time
+    i = (i + 1) % sentences.length;
+  }, FADE_DURATION);
 }
-setInterval(rotate, 4000); // change every 2.5s
+
+/* wait, then begin rotation */
+setTimeout(() => {
+  rotate(); // first appearance
+  setInterval(rotate, ROTATE_INTERVAL);
+}, START_DELAY);
+
 
 
 
@@ -40,3 +47,5 @@ document.addEventListener("DOMContentLoaded", () => {
 
   cards.forEach((card) => observer.observe(card));
 });
+
+

@@ -10,7 +10,9 @@
   
     <body>
         <nav class="topbar">
-            <img src="Other/Images/Prof.png" class="bing">
+            <a href="index.html" class="unihome">
+                <img src="Other/Images/Prof.png" class="bing">
+            </a>
             <a href="index.html" class="navlink">Home</a>
             <a href="about.html" class="navlink">About</a>
             <a href="projects.html" class="navlink">Projects</a>
@@ -30,14 +32,17 @@
                     <p class="rotating">
                         <span id="rotateText"></span>
                     </p>
+                    <div class="scroll-indicator">
+                        ↓
+                    </div>
                 </div>
             </div>
             
             <div class="descriptions">
-                <div class="sub">
-                    <h4> Explore the site: </h4>
-                </div>
-                <div class="gridd">
+                
+                <h4 class="sub fade-in"> Explore the site: </h4>
+                
+                <div class="gridd fade-in">
                     <a href="about.html" class = "card">
                         <div class="icon">
                             <img src="Other/Images/about2.jpg" alt="LinkedIn" class="icon" />
@@ -108,5 +113,29 @@
         </main>   
         
         <script src="script.js"></script>
+    <script>
+        const gridd = document.querySelector(".gridd");
+        const arrow = document.querySelector(".scroll-indicator");
+
+        const observer = new IntersectionObserver(
+        ([entry]) => {
+            if (!entry.isIntersecting) return;
+
+            // show content
+            document.querySelectorAll(".fade-in")
+            .forEach(el => el.classList.add("show"));
+
+            // hide arrow
+            arrow.classList.add("hide");
+
+            observer.disconnect();
+        },
+        { threshold: 0.5 }
+        );
+
+        observer.observe(gridd);
+
+    </script>
     </body>
 </html>
+

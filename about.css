@@ -1,9 +1,14 @@
 ﻿html, body {
   margin: 0;
   padding: 0;
+  overflow-x: hidden;
   font-family: "Poppins", "Inter", Arial, sans-serif;
-  background-color: white;
-  color: #111;
+  background-color: black;
+  background-image: linear-gradient(180deg, #000000 70%, #10d8ce 80%, #08c985 90%);
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  text-decoration: none;
+  height: 100%;
 }
 
 .topbar {
@@ -20,10 +25,18 @@
   z-index: 99999999;
 }
 
+.unihome {
+  margin-right: auto;
+}
+
 .bing {
   height: 70px;
-  margin-right: auto;
   margin-left: 35px;
+  transition: 0.2s ease;
+}
+
+.bing:hover {
+  transform: scale(1.1);
 }
 
 .navlink {
@@ -40,3 +53,83 @@
 .navlink:hover {
   background: rgba(255, 255, 255, 0.12);
 }
+
+.Top {
+  position: relative;
+  width: 100%;
+  height: 450px;
+  background-color: black;
+  overflow: hidden;
+}
+
+.Titleabout {
+  position: absolute;
+  inset: 0;
+  margin-left: 80px;
+  color: rgb(255, 140, 0);
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  margin-top: 50px;
+  font-size: 50px;
+  letter-spacing: -0.02em;
+  z-index: 1111;
+  text-shadow: 0 4.5px 100px rgb(255, 140, 0);
+}
+
+.wrap::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 1; /* ABOVE the video */
+
+  background: linear-gradient(
+    to bottom,
+    rgba(0, 0, 0, 0.282) 40%,
+    rgba(0, 0, 0, 0.587) 50%,
+    rgb(0, 0, 0) 64%
+  );
+}
+
+.vidback {
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: cover;
+  position: relative;
+  z-index: 0;
+}
+
+.text {
+  position: relative;
+  color: white;
+  padding: 30px;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  margin-top: -155px;
+  background: hsla(0, 0%, 0%, 0.853);
+  z-index: 5;
+}
+
+.section {
+  position: relative;
+  width: 90%;
+  display: flex;
+  margin: auto;
+  gap: 100px;
+  padding: 100px;
+  align-items: center;
+  margin-bottom: -80px;
+}
+
+.section p {
+  font-size: 22px;
+}
+
+.icon {
+  width: 325px;
+  height: 450px;
+  opacity: 0.9;
+  border: 2px solid #ffffff;
+  box-shadow: 0 5px 25px rgba(255, 255, 255, 0.554);
+    
+}
+
