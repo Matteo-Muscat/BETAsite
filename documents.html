@@ -7,6 +7,17 @@
     <link rel="stylesheet" href="documents.css" />
   </head>
 
+  <script>
+  function openPreview(pdfPath) {
+    document.getElementById("previewFrame").src = pdfPath;
+    document.getElementById("previewModal").style.display = "flex";
+  }
+
+  function closePreview() {
+    document.getElementById("previewModal").style.display = "none";
+    document.getElementById("previewFrame").src = "";
+  }
+  </script>
   <body>
     <nav class="topbar">
       <a href="index.html" class="unihome">
@@ -32,6 +43,10 @@
         <h1>Documents</h1>
       </div>
     </div>
+    
+    <div class="subtitle">
+      <h5>Timeline:</h5>
+    </div>
     <div class="Wrap">
       <div class="Timeline">
         <div class="Line"></div>
@@ -44,7 +59,7 @@
             <div class="Dot"></div>
             <div class="Line2"></div>
             <h2>Highschool Graduation</h2>
-            <p>(June 2024)</p>
+            <p>June 2024</p>
           </div>
         </div>
 
@@ -55,8 +70,8 @@
             </div>
             <div class="Dot"></div>
             <div class="Line2"></div>
-            <h2>Start 1st year of University</h2>
-            <p>(September 2024)</p>
+            <h2>1st year of University</h2>
+            <p>September 2024</p>
           </div>
         </div>
 
@@ -68,7 +83,7 @@
             <div class="Dot"></div>
             <div class="Line2"></div>
             <h2>2nd year of University</h2>
-            <p>(September 2025)</p>
+            <p>September 2025</p>
           </div>
         </div>
 
@@ -80,7 +95,7 @@
             <div class="Dot"></div>
             <div class="Line2"></div>
             <h2>Attended Winhacks Hackathon</h2>
-            <p>(February 2026)</p>
+            <p>February 2026</p>
           </div>
         </div>
 
@@ -92,7 +107,7 @@
             <div class="Dot"></div>
             <div class="Line2"></div>
             <h2>4 month co-op placement</h2>
-            <p>(Summer 2026)</p>
+            <p>Summer 2026</p>
           </div>
         </div>
 
@@ -107,8 +122,53 @@
             <p> Coming soon</p>
           </div>
         </div>
-
+        
       </div>
     </div>
+
+    <div class="scroll-indicator">
+      <span class="scroll-arrow">Scroll ↔</span>
+    </div>
+
+    <div class="Cards">
+
+      <div class="Stuff">
+        <h1>Resume</h1>
+        <p>Description</p>
+
+        <img 
+          src="Other/Images/res.png"
+          class="doc-thumb"
+          onclick="openPreview('Other/Docs/MatteoMuscatResume.pdf')"
+        >
+
+        <a href="Other/Docs/MatteoMuscatResume.pdf" download class="download-btn">
+          Download Resume
+        </a>
+      </div>
+
+      <div class="Stuff">
+        <h1>References</h1>
+        <p>Description</p>
+
+        <img 
+          src="Other/Images/ref.png"
+          class="doc-thumb"
+          onclick="openPreview('Other/Docs/ReferenceList.pdf')"
+        >
+
+        <a href="Other/Docs/ReferenceList.pdf" download class="download-btn">
+          Download References
+        </a>
+      </div>
+    </div>
+
+    <div id="previewModal" class="preview-modal">
+      <div class="preview-content">
+        <iframe id="previewFrame"></iframe>
+        <button class="close-btn" onclick="closePreview()">Close</button>
+      </div>
+    </div>
+
   </body>
 </html>
