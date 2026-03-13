@@ -1,9 +1,12 @@
-﻿html, body {
+﻿body {
   margin: 0;
   padding: 0;
   font-family: "Poppins", "Inter", Arial, sans-serif;
-  background-color: white;
+  background-color: rgb(0, 0, 0);
   color: #111;
+  border: 8px solid rgb(196, 3, 3);
+  min-height: 100vh;
+  box-sizing: border-box;
 }
 
 .topbar {
@@ -47,4 +50,124 @@
 
 .navlink:hover {
   background: rgba(255, 255, 255, 0.12);
+}
+
+.Top {
+  position: relative;
+  width: 100%;
+  height: 400px;
+  overflow: hidden;
+  background-color: black;
+}
+
+.Title {
+  position: absolute;
+  inset: 0;
+  margin-left: 80px;
+  color: rgb(228, 17, 17);
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  margin-top: 50px;
+  font-size: 50px;
+  letter-spacing: -0.02em;
+  z-index: 1111;
+  text-shadow: 0 4.5px 100px rgb(228, 17, 17);
+}
+
+.wrap::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 1; /* ABOVE the video */
+
+  background: linear-gradient(
+    to bottom,
+    rgba(0, 0, 0, 0.329) 60%,
+    rgba(0, 0, 0, 0.77) 80%,
+    rgb(0, 0, 0) 94%
+  );
+}
+
+.vidback {
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: cover;
+  position: relative;
+  z-index: 0;
+}
+
+.content img {
+  width: 300px;
+  height: 175px;
+  border-radius: 5px;
+}
+
+.List {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  align-items: center;
+  padding: 25px;
+}
+
+.card{
+  background-color: #e1dadae6;
+  position: relative;
+  width: 1500px;
+  display: flex;
+  gap: 0px;
+  padding: 50px 20px;
+  font-family:system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+.content2 p {
+  font-size: 20px;
+  margin-top: 5px;
+}
+
+.content2 {
+  margin-top: -30px;
+  display: flex;
+  flex-direction: column;
+  padding: 10px 70px;
+}
+
+.content{
+  margin-top: -20px;
+  position: relative;
+  margin-left: 50px;
+  align-content: center;
+  max-width: 600px;
+  font-size: 35px;
+  font-weight: 600;
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+  color: rgb(255, 39, 39);
+  text-shadow: #fc2323c8 0px 0px 10px;
+}
+
+.click {
+  align-content: center;
+  padding-right: 54px;
+}
+
+.button{
+  display: inline-block;
+  border-radius: 110px;
+  text-align: center;
+  background-color: rgba(0, 0, 0, 0.849);
+  text-decoration: none;
+  padding: 30px 5px;
+  transition: transform 0.2s ease;
+  color: rgb(255, 255, 255);
+  width: 200px;
+  font-size: 18px;
+}
+
+.button:hover {
+  transform:scale(1.1);
+  color: rgb(0, 0, 0);
+  background-color: rgb(255, 0, 0);
 }
