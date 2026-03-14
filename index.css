@@ -1,10 +1,32 @@
-﻿html, body {
+﻿body {
   margin: 0;
   padding: 0;
   overflow-x: hidden;
   font-family: "Poppins", "Inter", Arial, sans-serif;
   background-color: black;
   height: 100%;
+}
+
+/* Scrollbar width */
+::-webkit-scrollbar {
+  width: 10px;
+}
+/* Track */
+::-webkit-scrollbar-track {
+  background: rgba(0, 0, 0, 0);
+}
+/* Thumb (draggable part) */
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(
+    180deg,
+    rgb(138, 138, 138),
+    rgba(79, 79, 79, 0.6)
+  );
+  border-radius: 80px;
+}
+/* Hover effect */
+::-webkit-scrollbar-thumb:hover {
+  background: rgb(255, 255, 255);
 }
 
 .topbar {
@@ -29,6 +51,7 @@
   height: 70px;
   margin-left: 35px;
   transition: 0.2s ease;
+  margin-top: 5px;
 }
 
 .bing:hover {
@@ -133,7 +156,6 @@
   height: 70%;
   width: 100%;
   object-fit: cover;
-  
 }
 
 .sub {

@@ -8,7 +8,28 @@
   background-repeat: no-repeat;
   background-attachment: fixed;
   text-decoration: none;
-  height: 100%;
+}
+
+/* Scrollbar width */
+::-webkit-scrollbar {
+  width: 10px;
+}
+/* Track */
+::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0);
+}
+/* Thumb (draggable part) */
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(
+    180deg,
+    rgb(62, 75, 255),
+    rgba(255, 255, 255, 0.156)
+  );
+  border-radius: 80px;
+}
+/* Hover effect */
+::-webkit-scrollbar-thumb:hover {
+  background: rgb(255, 255, 255);
 }
 
 .topbar {
@@ -33,6 +54,7 @@
   height: 70px;
   margin-left: 35px;
   transition: 0.2s ease;
+  margin-top: 5px;
 }
 
 .bing:hover {

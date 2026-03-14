@@ -38,6 +38,7 @@ html, body {
   height: 70px;
   margin-left: 35px;
   transition: 0.2s ease;
+  margin-top: 5px;
 }
 
 .bing:hover {
@@ -70,9 +71,6 @@ html, body {
   overflow-x: hidden;
   opacity: 0.75;
   
-}
-
-.All {
 }
 
 .Writing {
@@ -157,7 +155,7 @@ html, body {
 
 @keyframes glow {
   0% {
-    box-shadow: 0 0 10px rgba(255, 41, 41, 0.5);
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.25);
     
     
   }
@@ -167,7 +165,7 @@ html, body {
     
   }
   100% {
-    box-shadow: 0 0 10px rgba(255, 41, 41, 0.5);
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.25);
     
     
   }
