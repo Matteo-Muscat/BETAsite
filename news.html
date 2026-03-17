@@ -24,7 +24,7 @@
     <div class = "Top">
       <div class="wrap">
         <video class = "vidback" autoplay muted loop playsinline>
-            <source src="Other/Videos/gold2.mp4" type="video/mp4" />
+            <source src="Other/Videos/yell.mp4" type="video/mp4" />
         </video>
       </div>
 
@@ -33,8 +33,178 @@
       </div>
     </div>
 
-  <script>
-  document.querySelector(".vidback").playbackRate = 0.8;
-  </script>
+     <button class="menuToggle" id="menuToggle">☰ Sort</button>
+
+    <aside class="sideMenu" id="sideMenu">
+      <h2>Sort Posts</h2>
+      <button class="sortBtn" onclick="sortPostsNewest()">Newest First</button>
+      <button class="sortBtn" onclick="sortPostsOldest()">Oldest First</button>
+    </aside>
+
+    <main class="newsPage">
+      <section class="feed" id="feed">
+
+        <article class="post" data-date="2026-03-09">
+          <div class="postHeader">
+            <img src="Other/Images/Prof.png" alt="Matteo" class="profilePic">
+            <div class="postMeta">
+              <h3>Matteo</h3>
+              <p>March 9th, 2026</p>
+            </div>
+          </div>
+
+          <div class="postBody">
+            <p>
+              Here is my first post which will be used purely as a test to see how the feed looks and functions.
+            </p>
+            <img src="Other/Images/firstt.gif" alt="Post image" class="postImage">
+          </div>
+        </article>
+
+        <article class="post" data-date="2026-01-14">
+          <div class="postHeader">
+            <img src="Other/Images/Prof.png" alt="Matteo" class="profilePic">
+            <div class="postMeta">
+              <h3>Matteo</h3>
+              <p>January 14th, 2026</p>
+            </div>
+          </div>
+
+          <div class="postBody">
+            <p>
+              I just completed Introduction to Git on Datacamp!
+            </p>
+            <img src="Other/Images/itg.png" alt="Post image" class="postImage">
+          </div>
+        </article>
+
+        <article class="post" data-date="2025-11-10">
+          <div class="postHeader">
+            <img src="Other/Images/Prof.png" alt="Matteo" class="profilePic">
+            <div class="postMeta">
+              <h3>Matteo</h3>
+              <p>November 10th, 2025</p>
+            </div>
+          </div>
+
+          <div class="postBody">
+            <p>
+              I earned my first datacamp certificate for completing Introduction to Bash Scripting!
+            </p>
+            <img src="Other/Images/itbs.png" alt="Post image" class="postImage">
+          </div>
+        </article>
+
+        <article class="post" data-date="2026-03-02">
+          <div class="postHeader">
+            <img src="Other/Images/Prof.png" alt="Matteo" class="profilePic">
+            <div class="postMeta">
+              <h3>Matteo</h3>
+              <p>March 2nd, 2026</p>
+            </div>
+          </div>
+
+          <div class="postBody">
+            <p>
+              I recently completed a lesson on Datacamp, Intermediate Java!
+            </p>
+            <img src="Other/Images/ij.png" alt="Post image" class="postImage">
+          </div>
+        </article>
+
+        <article class="post" data-date="2026-01-19">
+          <div class="postHeader">
+            <img src="Other/Images/Prof.png" alt="Matteo" class="profilePic">
+            <div class="postMeta">
+              <h3>Matteo</h3>
+              <p>January 19th, 2026</p>
+            </div>
+          </div>
+
+          <div class="postBody">
+            <p>
+              I've successfully completed the Introduction to Object-Oriented Programming course on Datacamp!
+            </p>
+            <img src="Other/Images/itoop.png" alt="Post image" class="postImage">
+          </div>
+        </article>
+
+        <article class="post" data-date="2026-02-08">
+          <div class="postHeader">
+            <img src="Other/Images/Prof.png" class="profilePic">
+            <div class="postMeta">
+              <h3>Matteo</h3>
+              <p>February 8, 2026</p>
+            </div>
+          </div>
+
+          <div class="postBody">
+            <p>
+              Some news about my co-op placement for the summer 👀...
+            </p>
+
+            <div class="linkedinEmbed">
+              <iframe
+                src="https://www.linkedin.com/embed/feed/update/urn:li:share:7424595405352456192"
+                frameborder="0"
+                allowfullscreen
+                title="LinkedIn post">
+              </iframe>
+            </div>
+          </div>
+        </article>
+
+      </section>
+    </main>
+
+    <footer class="footer">
+
+      <div class="footerLeft">
+        © 2026 Matteo Muscat
+      </div>
+
+      <div class="footerLinks">
+        <a href="index.html">Home</a>
+        <a href="projects.html">Projects</a>
+        <a href="news.html">News</a>
+        <a href="contact.html">Contact</a>
+      </div>
+
+      <div class="footerSocial">
+        <a href="https://github.com">
+          <img src="Other/Images/github.png" class="logo2">
+          GitHub
+        </a>
+
+        <a href="https://linkedin.com">
+          <img src="Other/Images/linkedinpng.png" class="logo">
+          LinkedIn
+        </a>
+      </div>
+
+    </footer>
+
+    <script>
+      const menuToggle = document.getElementById("menuToggle");
+      const sideMenu = document.getElementById("sideMenu");
+      const feed = document.getElementById("feed");
+
+      menuToggle.addEventListener("click", () => {
+        sideMenu.classList.toggle("open");
+      });
+
+      function sortPostsNewest() {
+        const posts = Array.from(feed.querySelectorAll(".post"));
+        posts.sort((a, b) => new Date(b.dataset.date) - new Date(a.dataset.date));
+        posts.forEach(post => feed.appendChild(post));
+      }
+
+      function sortPostsOldest() {
+        const posts = Array.from(feed.querySelectorAll(".post"));
+        posts.sort((a, b) => new Date(a.dataset.date) - new Date(b.dataset.date));
+        posts.forEach(post => feed.appendChild(post));
+      }
+    </script>
+
   </body>
 </html>

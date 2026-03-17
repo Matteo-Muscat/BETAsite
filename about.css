@@ -4,19 +4,33 @@
   overflow-x: hidden;
   font-family: "Poppins", "Inter", Arial, sans-serif;
   background-color: rgba(15, 71, 15, 0.527);
-  background-image: linear-gradient(180deg, #000000 26%, rgba(40, 255, 105, 0.644) 50%, rgba(35, 144, 21, 0.587) 75%);
+  background-image: linear-gradient(
+    180deg,
+    #000000 26%,
+    rgba(40, 255, 105, 0.644) 50%,
+    rgba(35, 144, 21, 0.587) 75%
+  );
   background-repeat: no-repeat;
   text-decoration: none;
+  min-height: 100%;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
 }
 
 /* Scrollbar width */
 ::-webkit-scrollbar {
   width: 10px;
 }
+
 /* Track */
 ::-webkit-scrollbar-track {
   background: rgb(0, 0, 0);
 }
+
 /* Thumb (draggable part) */
 ::-webkit-scrollbar-thumb {
   background: linear-gradient(
@@ -26,6 +40,7 @@
   );
   border-radius: 80px;
 }
+
 /* Hover effect */
 ::-webkit-scrollbar-thumb:hover {
   background: rgb(255, 255, 255);
@@ -36,9 +51,12 @@
   top: 0;
   left: 0;
   width: 100%;
-  height: 90px;
+  min-height: 90px;
   display: flex;
   align-items: center;
+  flex-wrap: wrap;
+  gap: 8px;
+  padding: 0 24px;
   box-sizing: border-box;
   background: hsla(0, 0%, 0%, 0.798);
   backdrop-filter: blur(10px);
@@ -47,13 +65,16 @@
 
 .unihome {
   margin-right: auto;
+  display: flex;
+  align-items: center;
 }
 
 .bing {
   height: 70px;
-  margin-left: 35px;
-  transition: 0.2s ease;
+  margin-left: 10px;
   margin-top: 5px;
+  transition: 0.2s ease;
+  display: block;
 }
 
 .bing:hover {
@@ -67,8 +88,9 @@
   font-weight: 600;
   padding: 10px 12px;
   border-radius: 10px;
-  margin: 30px;
+  margin: 0 28px;
   transition: background-color 0.2s ease;
+  white-space: nowrap;
 }
 
 .navlink:hover {
@@ -83,17 +105,10 @@
   overflow: hidden;
 }
 
-.Titleabout {
-  position: absolute;
-  inset: 0;
-  margin-left: 80px;
-  color: rgb(11, 199, 61);
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-  margin-top: 50px;
-  font-size: 50px;
-  letter-spacing: -0.02em;
-  z-index: 1111;
-  text-shadow: 0 4.5px 100px rgb(11, 199, 61);
+.wrap {
+  position: relative;
+  width: 100%;
+  height: 100%;
 }
 
 .wrap::after {
@@ -101,8 +116,7 @@
   position: absolute;
   inset: 0;
   pointer-events: none;
-  z-index: 1; /* ABOVE the video */
-
+  z-index: 1;
   background: linear-gradient(
     to bottom,
     rgba(0, 0, 0, 0.484) 70%,
@@ -121,11 +135,40 @@
   z-index: 0;
 }
 
+.Titleabout {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+  padding: 150px 0 0 80px;
+  color: rgb(11, 199, 61);
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+  font-size: 50px;
+  letter-spacing: -0.02em;
+  z-index: 1111;
+  text-shadow: 0 4.5px 100px rgb(11, 199, 61);
+  margin-top: -20px;
+}
+
+.Titleabout h1 {
+  margin: 0;
+  font-size: 110px;
+  line-height: 1;
+  font-weight: 700;
+}
+
+.aboutMain {
+  width: 100%;
+}
+
 .text {
   position: relative;
   color: white;
   padding: 30px;
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
   margin-top: -200px;
   z-index: 5;
 }
@@ -133,12 +176,12 @@
 .section {
   position: relative;
   width: 90%;
+  max-width: 1700px;   /* allows wider desktop layout */
   display: flex;
-  margin: auto;
+  margin: 0 auto 40px;
   gap: 100px;
   padding: 100px;
   align-items: center;
-  margin-bottom: -80px;
 }
 
 .writing {
@@ -146,10 +189,17 @@
   padding: 40px;
   border: 2px solid #ffffff00;
   box-shadow: 0 26px 20px rgb(34, 33, 33);
+  flex: 1 1 0;
+  min-width: 0;
+}
+
+.writing h1 {
+  margin-top: 0;
 }
 
 .section p {
   font-size: 22px;
+  line-height: 1.7;
 }
 
 .icon {
@@ -158,4 +208,423 @@
   opacity: 0.9;
   border-radius: 50%;
   box-shadow: 0 26px 20px rgb(34, 33, 33);
+  object-fit: cover;
+  flex-shrink: 0;
+}
+
+.footer {
+  background: rgba(35, 35, 35, 0.84);
+  color: white;
+  padding: 50px 60px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-top: 1px solid rgb(162, 255, 0);
+  flex-wrap: wrap;
+  gap: 20px;
+  font-family: "Poppins", "Inter", Arial, sans-serif;
+  font-weight: 550;
+  font-size: 17px;
+}
+
+.footerLeft {
+  opacity: 0.8;
+  font-size: 17px;
+}
+
+.footerLinks {
+  display: flex;
+  gap: 40px;
+  margin-right: 0;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.footerSocial {
+  display: flex;
+  align-items: center;
+  gap: 40px;
+  flex-wrap: wrap;
+  font-family: "Poppins", "Inter", Arial, sans-serif;
+  font-weight: 550;
+}
+
+.footer a {
+  color: white;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-weight: 550;
+  transition: opacity 0.2s ease;
+  font-family: "Poppins", "Inter", Arial, sans-serif;
+}
+
+.footer a:hover {
+  opacity: 0.75;
+}
+
+.logo {
+  width: 28px;
+  height: 28px;
+  object-fit: contain;
+  flex-shrink: 0;
+}
+
+.logo2 {
+  width: 58px;
+  height: 58px;
+  object-fit: contain;
+  margin-right: -14px;
+  flex-shrink: 0;
+}
+
+/* ----------- Large tablets / smaller laptops ----------- */
+@media (max-width: 1200px) {
+  .topbar {
+    justify-content: center;
+    padding: 12px 18px;
+    min-height: 90px;
+  }
+
+  .unihome {
+    margin-right: 0;
+  }
+
+  .bing {
+    margin-left: 0;
+  }
+
+  .navlink {
+    margin: 0 12px;
+    padding: 10px 10px;
+    font-size: 15px;
+  }
+
+  .Titleabout {
+    padding: 170px 0 0 60px;
+  }
+
+  .Titleabout h1 {
+    font-size: 88px;
+  }
+
+  .text {
+    margin-top: -150px;
+  }
+
+  .section {
+    gap: 60px;
+    padding: 70px 50px;
+  }
+
+  .icon {
+    width: 340px;
+    height: 340px;
+  }
+
+  .section p {
+    font-size: 20px;
+  }
+}
+
+/* ----------- Tablets ----------- */
+@media (max-width: 900px) {
+  .topbar {
+    position: fixed;
+    justify-content: center;
+    gap: 6px;
+    padding: 12px 14px;
+  }
+
+  .unihome {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .bing {
+    height: 62px;
+    margin-top: 0;
+  }
+
+  .navlink {
+    font-size: 14px;
+    padding: 8px 10px;
+    margin: 0 6px;
+  }
+
+  .Top {
+    height: 420px;
+  }
+
+  .Titleabout {
+    padding: 170px 0 0 40px;
+  }
+
+  .Titleabout h1 {
+    font-size: 68px;
+  }
+
+  .text {
+    margin-top: -100px;
+    padding: 20px;
+  }
+
+  .section {
+    width: 100%;
+    flex-direction: column;
+    gap: 50px;
+    padding: 40px 20px;
+    margin-bottom: 10px;
+  }
+
+  .section:nth-child(2) {
+    flex-direction: column;
+  }
+
+  .writing {
+    width: 100%;
+    padding: 28px;
+  }
+
+  .icon {
+    width: min(340px, 85vw);
+    height: min(340px, 85vw);
+  }
+
+  .section p {
+    font-size: 18px;
+  }
+
+  .footer {
+    padding: 35px 30px;
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .footerLinks,
+  .footerSocial {
+    justify-content: center;
+  }
+}
+
+/* ----------- Phones ----------- */
+@media (max-width: 600px) {
+  .topbar {
+    padding: 10px 10px 14px;
+    gap: 4px;
+  }
+
+  .bing {
+    height: 54px;
+  }
+
+  .navlink {
+    font-size: 13px;
+    padding: 7px 8px;
+    margin: 0 4px;
+  }
+
+  .Top {
+    height: 360px;
+  }
+
+  .Titleabout {
+    padding: 165px 0 0 20px;
+  }
+
+  .Titleabout h1 {
+    font-size: 44px;
+  }
+
+  .text {
+    margin-top: -60px;
+    padding: 14px;
+  }
+
+  .section {
+    padding: 26px 8px;
+    gap: 50px;
+  }
+
+  .writing {
+    padding: 20px;
+  }
+
+  .writing h1 {
+    font-size: 30px;
+  }
+
+  .section p {
+    font-size: 16px;
+    line-height: 1.65;
+  }
+
+  .icon {
+    width: min(280px, 82vw);
+    height: min(280px, 82vw);
+  }
+
+  .footer {
+    padding: 28px 20px;
+    gap: 18px;
+    font-size: 15px;
+  }
+
+  .footerLeft {
+    font-size: 15px;
+  }
+
+  .footerLinks {
+    gap: 18px;
+  }
+
+  .footerSocial {
+    gap: 18px;
+  }
+
+  .logo2 {
+    width: 48px;
+    height: 48px;
+    margin-right: -8px;
+  }
+}
+
+/* ----------- Very small phones ----------- */
+@media (max-width: 380px) {
+  .Titleabout h1 {
+    font-size: 38px;
+  }
+
+  .navlink {
+    font-size: 12px;
+    padding: 6px 7px;
+  }
+
+  .writing h1 {
+    font-size: 26px;
+  }
+
+  .section p {
+    font-size: 15px;
+  }
+}
+
+@media (max-width: 1280px) and (min-width: 1000px) and (max-height: 850px) {
+  .topbar {
+    justify-content: center;
+    padding: 10px 18px;
+    min-height: 90px;
+    height: auto;
+    gap: 8px;
+  }
+
+  .unihome {
+    margin-right: 0;
+  }
+
+  .bing {
+    margin-left: 0;
+    height: 62px;
+    margin-top: 0;
+  }
+
+  .navlink {
+    margin: 0 10px;
+    padding: 9px 10px;
+    font-size: 14px;
+  }
+
+  .Top {
+    height: 460px;
+  }
+
+  .Titleabout {
+    padding: 165px 0 0 55px;
+  }
+
+  .Titleabout h1 {
+    font-size: 88px;
+  }
+
+  .text {
+    margin-top: -115px;
+    padding: 20px;
+  }
+
+  .section {
+    width: 94%;
+    gap: 45px;
+    padding: 55px 35px;
+    align-items: flex-start;
+  }
+
+  .writing {
+    padding: 26px;
+    flex: 1;
+  }
+
+  .writing h1 {
+    font-size: 34px;
+  }
+
+  .section p {
+    font-size: 18px;
+    line-height: 1.6;
+  }
+
+  .icon {
+    width: 300px;
+    height: 300px;
+    flex-shrink: 0;
+  }
+
+  .footer {
+    padding: 38px 40px;
+  }
+
+  .footerLinks {
+    gap: 26px;
+  }
+
+  .footerSocial {
+    gap: 26px;
+  }
+}
+
+@media (max-width: 1100px) and (min-width: 850px) and (min-height: 1000px) {
+
+  .section {
+    width: 96%;
+    gap: 35px;
+    padding: 50px 30px;
+    align-items: flex-start;
+  }
+
+  .writing {
+    flex: 1;
+    max-width: none;
+    padding: 28px;
+  }
+
+  .writing h1 {
+    font-size: 34px;
+  }
+
+  .section p {
+    font-size: 19px;
+    line-height: 1.6;
+  }
+
+  .icon {
+    width: 280px;
+    height: 280px;
+    flex-shrink: 0;
+  }
+
+  .text {
+    margin-top: -120px;
+    padding: 20px;
+  }
+
 }

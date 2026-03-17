@@ -42,7 +42,7 @@ document.addEventListener("DOMContentLoaded", () => {
         }
       });
     },
-    { threshold: 0.9 }
+    { threshold: 0.5 }
   );
 
   cards.forEach((card) => observer.observe(card));
