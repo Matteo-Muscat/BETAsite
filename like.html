@@ -41,42 +41,80 @@
 
 
   <script>
-  const likeBtn = document.getElementById("Lb");
-  const likeCount = document.getElementById("Lc");
+    const likeBtn = document.getElementById("Lb");
+    const likeCount = document.getElementById("Lc");
+    const pageName = "like";
 
-  let count = localStorage.getItem("likeCount");
+    let liked = localStorage.getItem("liked-like");
 
-  if (count === null) {
-    count = 0;
-  }
+    async function loadLikes() {
+      try {
+        const response = await fetch(`/api/likes?page=${pageName}`, {
+          cache: "no-store"
+        });
 
-  likeCount.textContent = "Likes: " + count;
+        const data = await response.json();
 
-  let liked = localStorage.getItem("liked");
+        if (response.ok) {
+          likeCount.textContent = "Likes: " + data.count;
+        } else {
+          console.error(data.error);
+          likeCount.textContent = "Likes: 0";
+        }
+      } catch (error) {
+        console.error("Failed to load likes:", error);
+        likeCount.textContent = "Likes: 0";
+      }
+    }
 
-  if (liked === "true") {
-    likeBtn.disabled = true;
-    likeBtn.textContent = "🧡";
-    likeBtn.classList.add("liked");
-  }
+    async function sendLike() {
+      try {
+        const response = await fetch("/api/like", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json"
+          },
+          body: JSON.stringify({ page: pageName })
+        });
 
-  likeBtn.addEventListener("click", () => {
+        const data = await response.json();
 
-    if (liked === "true") return;
+        if (response.ok) {
+          likeCount.textContent = "Likes: " + data.count;
+          return true;
+        } else {
+          console.error(data.error);
+          return false;
+        }
+      } catch (error) {
+        console.error("Failed to send like:", error);
+        return false;
+      }
+    }
 
-    count++;
-    likeCount.textContent = "Likes: " + count;
+    if (liked === "true") {
+      likeBtn.disabled = true;
+      likeBtn.textContent = "🧡";
+      likeBtn.classList.add("liked");
+    }
 
-    likeBtn.classList.add("liked");
-    likeBtn.classList.add("animateLike");
+    likeBtn.addEventListener("click", async () => {
+      if (liked === "true") return;
 
-    localStorage.setItem("likeCount", count);
-    localStorage.setItem("liked", "true");
+      const success = await sendLike();
+      if (!success) return;
 
-    likeBtn.disabled = true;
-    likeBtn.textContent = "🧡";
+      likeBtn.classList.add("liked");
+      likeBtn.classList.add("animateLike");
 
-  });
+      localStorage.setItem("liked-like", "true");
+      liked = "true";
+
+      likeBtn.disabled = true;
+      likeBtn.textContent = "🧡";
+    });
+
+    loadLikes();
   </script>
 
   </body>
