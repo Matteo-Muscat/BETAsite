@@ -204,7 +204,10 @@
         posts.sort((a, b) => new Date(a.dataset.date) - new Date(b.dataset.date));
         posts.forEach(post => feed.appendChild(post));
       }
-    </script>
 
+      // Default to newest-first order on page load
+      sortPostsNewest();
+    </script>
+    <script defer src="/_vercel/insights/script.js"></script>
   </body>
 </html>

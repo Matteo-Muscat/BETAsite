@@ -426,6 +426,10 @@
     padding: 40px;
   }
 
+  .Title {
+    margin-top: 150px;
+  }
+
   .card {
     width: 82%;
     height: 100%;

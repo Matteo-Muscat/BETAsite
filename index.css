@@ -49,6 +49,7 @@
   flex-wrap: wrap;
   gap: 8px;
   padding: 0 24px;
+  box-sizing: border-box;
   background: hsla(0, 0%, 0%, 0.798);
   backdrop-filter: blur(10px);
   z-index: 99999999;
@@ -440,7 +441,7 @@
   .navlink {
     font-size: 14px;
     padding: 8px 10px;
-    margin: 0;
+    margin: 0 6px;
   }
 
   .vid {
@@ -508,8 +509,8 @@
   }
 
   .navlink {
-    margin: 0 6px;
-    font-size: 14px;
+    margin: 0 4px;
+    font-size: 13px;
     padding: 7px 8px;
   }
 
@@ -621,6 +622,8 @@
 }
 
 @media (max-width: 1100px) and (min-width: 901px) and (min-height: 1000px) {
+ 
+
   .gridd {
     grid-template-columns: repeat(2, minmax(260px, 1fr));
     gap: 36px;
