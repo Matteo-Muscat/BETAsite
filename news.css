@@ -304,7 +304,6 @@ body {
   color: white;
   padding: 50px 60px;
   display: flex;
-  justify-content: space-between;
   align-items: center;
   border-top: 1px solid rgb(255, 234, 0);
   flex-wrap: wrap;
@@ -314,20 +313,42 @@ body {
   font-size: 17px;
 }
 
-.footerLeft {
-  opacity: 0.8;
-  font-size: 17px;
-}
-
+/* 3 equal sections */
+.footerLeft,
+.footerCenter,
 .footerSocial {
+  flex: 1;
   display: flex;
   align-items: center;
-  gap: 40px;
-  flex-wrap: wrap;
-  font-family: "Poppins", "Inter", Arial, sans-serif;
-  font-weight: 550;
 }
 
+/* Left */
+.footerLeft {
+  justify-content: flex-start;
+  opacity: 0.8;
+}
+
+/* Center (THIS is the fix) */
+.footerCenter {
+  justify-content: center;
+}
+
+/* Right */
+.footerSocial {
+  justify-content: flex-end;
+  gap: 40px;
+}
+
+/* Links */
+.footerLinks {
+  display: flex;
+  gap: 40px;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Anchor styling */
 .footer a {
   color: white;
   text-decoration: none;
@@ -336,19 +357,10 @@ body {
   gap: 10px;
   font-weight: 550;
   transition: opacity 0.2s ease;
-  font-family: "Poppins", "Inter", Arial, sans-serif;
 }
 
 .footer a:hover {
   opacity: 0.75;
-}
-
-.footerLinks {
-  display: flex;
-  gap: 40px;
-  margin-right: 0;
-  flex-wrap: wrap;
-  justify-content: center;
 }
 
 .logo {
